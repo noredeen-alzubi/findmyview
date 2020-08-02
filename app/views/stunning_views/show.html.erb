@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @stunning_view.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @stunning_view.description %>
+</p>
+
+<p>
+  <strong>Car access:</strong>
+  <%= @stunning_view.car_access %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @stunning_view.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @stunning_view.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_stunning_view_path(@stunning_view) %> |
+<%= link_to 'Back', stunning_views_path %>

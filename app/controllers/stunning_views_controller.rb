@@ -1,18 +1,23 @@
 class StunningViewsController < ApplicationController
   before_action :set_stunning_view, only: [:show, :edit, :update, :destroy]
 
-  # GET /stunning_views
-  # GET /stunning_views.json
   def index
-    @stunning_views = StunningView.all
+    # TODO: Change this to a database association.
+    if params[:city]
+      @stunning_views = StunningView.where(city: params[:city])
+    elsif params[:nearby]
+      # Hacky fix for development environments
+      location = Geocoder.search(Net::HTTP.get(URI.parse('http://checkip.amazonaws.com/')).squish).first.address
+      @stunning_views = StunningView.near(location, 50)
+    else
+      # TODO: Add default sorting
+      @stunning_views = StunningView.all
+    end
   end
 
-  # GET /stunning_views/1
-  # GET /stunning_views/1.json
   def show
   end
 
-  # GET /stunning_views/new
   def new
     @stunning_view = StunningView.new
   end

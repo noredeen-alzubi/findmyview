@@ -2,13 +2,14 @@ class StunningViewsController < ApplicationController
   before_action :set_stunning_view, only: [:show, :edit, :update, :destroy]
 
   def index
-    # TODO: Change this to a database association.
     if params[:city]
-      @stunning_views = StunningView.where(city: params[:city])
+      # TODO: search by name for now. Switch to using a city object.
+      @stunning_views = City.find_by(name: param[:city].camelcase).stunning_views
     elsif params[:ip]
       # Hacky fix for development environments
       if location =  Geocoder.search(params[:ip]).first
-      @stunning_views = StunningView.near(location, 50)
+        @stunning_views = StunningView.near(location, 50)
+      end
     else
       # TODO: Add default sorting
       @stunning_views = StunningView.all

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_03_163134) do
+ActiveRecord::Schema.define(version: 2020_08_05_074405) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -24,9 +24,11 @@ ActiveRecord::Schema.define(version: 2020_08_03_163134) do
     t.boolean "car_access"
     t.decimal "latitude"
     t.decimal "longitude"
+    t.integer "city_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "city"
+    t.index ["city_id"], name: "index_stunning_views_on_city_id"
   end
 
+  add_foreign_key "stunning_views", "cities"
 end

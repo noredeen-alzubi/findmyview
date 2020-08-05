@@ -6,6 +6,7 @@ class CreateStunningViews < ActiveRecord::Migration[6.0]
       t.boolean :car_access
       t.decimal :latitude
       t.decimal :longitude
+      t.references :city, null: false, foreign_key: true
 
       t.timestamps
     end

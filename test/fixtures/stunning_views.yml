@@ -6,6 +6,7 @@ one:
   car_access: false
   latitude: 9.99
   longitude: 9.99
+  city: one
 
 two:
   title: MyString
@@ -13,3 +14,4 @@ two:
   car_access: false
   latitude: 9.99
   longitude: 9.99
+  city: two

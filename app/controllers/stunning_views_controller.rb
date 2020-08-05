@@ -3,8 +3,8 @@ class StunningViewsController < ApplicationController
 
   def index
     if params[:city]
-      # TODO: search by name for now. Switch to using a city object.
-      @stunning_views = City.find_by(name: param[:city].camelcase).stunning_views
+      # TODO: search by name for now. Switch to using a city object (from homepage).
+      @stunning_views = City.find_by(name: params[:city].camelcase).stunning_views
     elsif params[:ip]
       # Hacky fix for development environments
       if location =  Geocoder.search(params[:ip]).first

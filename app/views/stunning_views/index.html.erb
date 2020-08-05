@@ -1,8 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Stunning Views</h1>
+<div class="row justify-content-center">
+  <div class="col-sm-8">
+    <div class="card-deck">
+      <% @stunning_views.each do |stunning_view| %>
+        <div class="card mh-50">
+          <img class="card-img-top" src="https://images.unsplash.com/photo-1589825513188-72edada388d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= stunning_view.title %></h5>
+            <p class="card-text"><%= stunning_view.description %></p>
+            <p class="card-text"><small class="text-muted">Posted <%= distance_of_time_in_words(Time.now, stunning_view.created_at) %> ago</small></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<table>
+<!--<table>
   <thead>
     <tr>
       <th>Title</th>
@@ -30,7 +45,7 @@
       </tr>
     <% end %>
   </tbody>
-</table>
+</table>-->
 
 <br>
 

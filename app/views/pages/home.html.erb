@@ -8,12 +8,11 @@
     </div>
     <div class="container">
       <form class="form-inline active-cyan-4">
-        <%= button_to "Find Nearby", stunning_views_path, {method: 'get', class: "btn btn-primary btn-md btn-info main mr-2", nearby:true} %>
-        <!--<button type="button" class="btn btn-primary btn-md btn-info main mr-2" href="<%= stunning_views_path %>">Find Nearby</button>-->
+        <%= link_to "Find Nearby", stunning_views_path(ip:"90.84.73.13"), class: "btn btn-primary btn-md btn-info main mr-2" %>
         <h5 class="mr-2"><strong>or start with a city:</strong></h5>
         <input class="form-control form-control-sm mr-3 w-25" type="text" placeholder="Search"
           aria-label="Search">
-        <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+        <i class="fa fa-search" aria-hidden="true"></i>
       </form>
     </div>
     

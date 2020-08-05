@@ -5,9 +5,9 @@ class StunningViewsController < ApplicationController
     # TODO: Change this to a database association.
     if params[:city]
       @stunning_views = StunningView.where(city: params[:city])
-    elsif params[:nearby]
+    elsif params[:ip]
       # Hacky fix for development environments
-      location = Geocoder.search(Net::HTTP.get(URI.parse('http://checkip.amazonaws.com/')).squish).first.address
+      if location =  Geocoder.search(params[:ip]).first
       @stunning_views = StunningView.near(location, 50)
     else
       # TODO: Add default sorting

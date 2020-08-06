@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/new'
   resources :cities
   resources :stunning_views
   root to: "pages#home"

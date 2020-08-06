@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in @user
       flash[:success] = "Welcome to FindMyView #{@user.name}!"
       redirect_to stunning_views_path
     else

@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include SessionsHelper
   def request_ip
     if Rails.env.development? && params[:ip]
       params[:ip]

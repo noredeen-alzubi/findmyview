@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :cities
   resources :stunning_views
-  resources :users, only: [:new, :update, :create, :destroy]
+  resources :users, except: [:index]
 end

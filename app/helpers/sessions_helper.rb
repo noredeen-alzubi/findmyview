@@ -20,4 +20,16 @@ module SessionsHelper
     @current_user = nil
   end
 
+  def correct_user?(user)
+    user && user == current_user
+  end
+
+  def store_target_location
+    session[:forwarding_url] = request.original_url if request.get?
+  end
+
+  def store_previous_location
+    session[:forwarding_url] = URI(request.referer).path
+  end
+
 end

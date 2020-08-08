@@ -2,7 +2,6 @@
   <% if stunning_view.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(stunning_view.errors.count, "error") %> prohibited this stunning_view from being saved:</h2>
-
       <ul>
         <% stunning_view.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -35,6 +34,10 @@
     <%= form.label :longitude %>
     <%= form.text_field :longitude %>
   </div>
+
+  <span class="images">
+    <%= form.file_field :images, multiple: true %>
+  </span>
 
   <div class="actions">
     <%= form.submit %>

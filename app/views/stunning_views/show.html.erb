@@ -1,6 +1,13 @@
-<p id="notice"><%= notice %></p>
+<% provide :head_tags do %>
+  <meta name='turbolinks-visit-control' content='reload'>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      initMap(<%=@stunning_view.latitude%>, <%=@stunning_view.longitude%>)
+    });
+  </script>
+<% end %>
 
-<div class="">
+<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Title:</strong>
@@ -26,6 +33,14 @@
   <strong>Longitude:</strong>
   <%= @stunning_view.longitude %>
 </p>
+
+<iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=<%= Rails.application.credentials.google_maps_api_key %>
+    &q=<%= @stunning_view.latitude %>,<%= @stunning_view.longitude %>" allowfullscreen>
+</iframe>
 
 <%= link_to 'Edit', edit_stunning_view_path(@stunning_view) %> |
 <%= link_to 'Back', stunning_views_path %>

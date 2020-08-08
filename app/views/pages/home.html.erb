@@ -6,13 +6,12 @@
     </div>
     <div class="container h-50">
     </div>
-    <div class="container">
-      <%= form_for :home, url: stunning_views_path, method: 'get', html:{class:"form-inline active-cyan-4"} do |form| %>
+    <div class="container text-center">
+      <%= form_with url: stunning_views_path, method: 'get', html:{class:"form-inline active-cyan-4 justify-content-center"} do |form| %>
         <%= link_to "Find Nearby", stunning_views_path(nearby:true), class: "btn btn-primary btn-md btn-info main mr-2" %>
         <h5 class="mr-2"><strong>or start with a city:</strong></h5>
-        <%= form.select :cities, City.all, {}, {id:"city-search", class:"form-control"} %>
-        <%= form.submit ""  %>
-      <% end  %>
+        <%= form.select :city, City.all, {}, {id:"city-search", class:"form-control", onchange: 'this.form.submit();', include_blank: "Pick a city..."} %>
+      <% end %>
     </div>
   </div>
 </div>

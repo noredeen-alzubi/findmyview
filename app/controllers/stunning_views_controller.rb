@@ -3,14 +3,13 @@ class StunningViewsController < ApplicationController
 
   def index
     if params[:city]
-      # TODO: search by name for now. Switch to using a city object (from homepage).
-      @stunning_views = City.find_by(name: params[:city].camelcase).stunning_views
+      # TODO: search by name for now. Switch to using a city object (from homepage)
+      @stunning_views = City.find_by(name: params[:city].camelcase).stunning_views.order created_at: :desc
     elsif params[:nearby]
       # Hacky fix for development environments. Needs validation
-      @stunning_views = StunningView.near([session[:current_latitude], session[:current_longitude]], 50)
+      @stunning_views = StunningView.near([session[:current_latitude], session[:current_longitude]], 50).order created_at: :desc
     else
-      # TODO: Add default sorting
-      @stunning_views = StunningView.all
+      @stunning_views = StunningView.all.order created_at: :desc
     end
   end
 

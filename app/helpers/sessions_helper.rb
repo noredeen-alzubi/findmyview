@@ -19,7 +19,7 @@ module SessionsHelper
     reset_session
     @current_user = nil
   end
-
+  
   def correct_user?(user)
     user && user == current_user
   end

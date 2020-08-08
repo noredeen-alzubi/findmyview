@@ -7,13 +7,12 @@
     <div class="container h-50">
     </div>
     <div class="container">
-      <form class="form-inline active-cyan-4">
+      <%= form_for :home, url: stunning_views_path, method: 'get', html:{class:"form-inline active-cyan-4"} do |form| %>
         <%= link_to "Find Nearby", stunning_views_path(nearby:true), class: "btn btn-primary btn-md btn-info main mr-2" %>
         <h5 class="mr-2"><strong>or start with a city:</strong></h5>
-        <input class="form-control form-control-sm mr-3 w-25" type="text" placeholder="Search"
-          aria-label="Search">
-        <i class="fa fa-search" aria-hidden="true"></i>
-      </form>
+        <%= form.select :cities, City.all, {}, {id:"city-search", class:"form-control"} %>
+        <%= form.submit ""  %>
+      <% end  %>
     </div>
   </div>
 </div>

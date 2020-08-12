@@ -9,15 +9,16 @@ require("@rails/activestorage").start()
 require("channels")
 import "bootstrap"
 require("jquery")
+require("jquery-ui")
 
+global.$ = $
+global.jQuery = $
 
 import "../stylesheets/application.scss"
 
-const Choices = require('choices.js')
 document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()
   $('[data-toggle="popover"]').popover()
-  var city_search = new Choices('#city-search')
 })
 
 // Uncomment to copy all static images under ../images to the output folder and reference

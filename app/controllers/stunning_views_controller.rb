@@ -68,6 +68,8 @@ class StunningViewsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_stunning_view
       @stunning_view = StunningView.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      render_404
     end
 
     # Only allow a list of trusted parameters through.

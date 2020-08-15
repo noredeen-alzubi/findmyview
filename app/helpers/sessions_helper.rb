@@ -29,6 +29,7 @@ module SessionsHelper
   end
 
   def store_previous_location
+    # TODO: This is buggy. Needs to be reworked.
     session[:forwarding_url] = URI(request.referer).path
   end
 

@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<div class="row justify-content-center">
-  <div class="col-sm-8">
-    <div class="card-deck">
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-sm-10">
       <% @stunning_views.each do |stunning_view| %>
         <a href="<%= stunning_view_path(stunning_view) %>" class="card mh-50">
-          <img class="card-img-top" src="<%= url_for(stunning_view.images.first) %>" alt="Card image cap">
+          <img class="card-img-top" src="<%= url_for(stunning_view.thumbnail) %>" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title"><%= stunning_view.title %></h5>
             <p class="card-text"><%= stunning_view.description %></p>

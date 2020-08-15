@@ -11,6 +11,10 @@ class StunningView < ApplicationRecord
   end
   after_initialize :reverse_geocode, if: ->(stunning_view){ stunning_view.latitude.present? && (stunning_view.latitude_changed? || stunning_view.longitude_changed?) }
   validate :acceptable_images
+
+  def thumbnail
+    images.first.variant(resize_to_limit: [800, 200])
+  end
   
   private
 

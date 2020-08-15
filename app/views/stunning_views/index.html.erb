@@ -7,8 +7,8 @@
         <a href="<%= stunning_view_path(stunning_view) %>" class="card mh-50">
           <img class="card-img-top" src="<%= url_for(stunning_view.thumbnail) %>" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title"><%= stunning_view.title %></h5>
-            <p class="card-text"><%= stunning_view.description %></p>
+            <h3 class="card-title"><%= stunning_view.title %></h5>
+            <p class="card-text text-truncate"><%= stunning_view.description %></p>
             <p class="card-text"><small class="text-muted">Posted <%= distance_of_time_in_words(Time.now, stunning_view.created_at) %> ago</small></p>
           </div>
         </a>

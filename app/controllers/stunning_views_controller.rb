@@ -1,4 +1,5 @@
 class StunningViewsController < ApplicationController
+  before_action :authorized, only: [:create, :update, :edit, :new, :destroy]
   before_action :set_stunning_view, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -70,6 +71,13 @@ class StunningViewsController < ApplicationController
       @stunning_view = StunningView.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       render_404
+    end
+
+    def authorized
+      unless current_user.admin?
+        flash[:danger] = "You are not authorized to access this page."
+        redirect_to root_path
+      end
     end
 
     # Only allow a list of trusted parameters through.

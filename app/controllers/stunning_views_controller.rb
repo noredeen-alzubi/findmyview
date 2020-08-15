@@ -28,6 +28,7 @@ class StunningViewsController < ApplicationController
   # POST /stunning_views.json
   def create
     @stunning_view = StunningView.new(stunning_view_params)
+    @stunning_view.images.attach(params[:stunning_view][:images])
     respond_to do |format|
       if @stunning_view.save
         format.html { redirect_to @stunning_view, notice: 'Stunning view was successfully created.' }

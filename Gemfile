@@ -34,9 +34,9 @@ gem "bcrypt"
 
 gem "bootstrap-sass"
 
-gem 'image_processing', '~> 1.2'
+gem 'ratyrate'
 
-gem "aws-sdk-s3", require: false
+gem 'mini_magick', '4.9.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -56,6 +56,7 @@ end
 
 group :production do
   gem 'pg', '1.2.3'
+  gem "aws-sdk-s3", require: false
 end
 
 group :test do

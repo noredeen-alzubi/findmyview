@@ -10,6 +10,8 @@ require("channels")
 import "bootstrap"
 require("jquery")
 require("jquery-ui")
+require("jquery.raty")
+require("ratyrate")
 
 global.$ = $
 global.jQuery = $

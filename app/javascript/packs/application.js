@@ -7,11 +7,11 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+//require("raty")
 import "bootstrap"
 require("jquery")
 require("jquery-ui")
-require("jquery.raty")
-require("ratyrate")
+
 
 global.$ = $
 global.jQuery = $

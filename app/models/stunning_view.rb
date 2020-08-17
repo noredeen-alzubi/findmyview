@@ -1,6 +1,8 @@
 class StunningView < ApplicationRecord
   ACCEPTABLE_IMG_TYPES = ["image/jpeg", "image/png"]
 
+  enum overlooking: {city: 0, downtown: 1, skyline: 2, water: 3, countryside: 4, airport: 5, monument: 6}
+
   belongs_to :city
   has_many_attached :images
   reverse_geocoded_by :latitude, :longitude do |stunning_view,results|

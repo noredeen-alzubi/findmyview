@@ -34,9 +34,11 @@ gem "bcrypt"
 
 gem "bootstrap-sass"
 
-gem 'ratyrate'
-
 gem 'mini_magick', '4.9.5'
+
+gem "bootstrap_form", "~> 4.0"
+
+gem "simple_form"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

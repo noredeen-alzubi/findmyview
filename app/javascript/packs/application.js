@@ -7,16 +7,14 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-//require("raty")
-import "bootstrap"
 require("jquery")
 require("jquery-ui")
 
+import "../stylesheets/application.scss"
+import "../sylesheets/simple_form-bootstrap"
 
 global.$ = $
 global.jQuery = $
-
-import "../stylesheets/application.scss"
 
 document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()

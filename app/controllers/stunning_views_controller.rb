@@ -82,6 +82,6 @@ class StunningViewsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def stunning_view_params
-      params.require(:stunning_view).permit(:title, :description, :car_access, :latitude, :longitude, images: [], :free_access, :overlooking, :serviced, :family_friendly)
+      params.require(:stunning_view).permit(:title, :description, :car_access, :latitude, :longitude, :free_access, :overlooking, :serviced, :family_friendly, images: [])
     end
 end

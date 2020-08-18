@@ -1,7 +1,7 @@
 class StunningView < ApplicationRecord
   ACCEPTABLE_IMG_TYPES = ["image/jpeg", "image/png"]
 
-  enum overlooking: {city: 0, downtown: 1, skyline: 2, water: 3, countryside: 4, airport: 5, monument: 6}
+  enum overlookings: {city: 0, downtown: 1, skyline: 2, water: 3, countryside: 4, airport: 5, monument: 6}
 
   belongs_to :city
   has_many_attached :images
@@ -13,7 +13,6 @@ class StunningView < ApplicationRecord
   end
   after_initialize :reverse_geocode, if: ->(stunning_view){ stunning_view.latitude.present? && (stunning_view.latitude_changed? || stunning_view.longitude_changed?) }
   validate :acceptable_images
-  ratyrate_rateable "stunningness"
 
   def thumbnail
     images.first

@@ -11,7 +11,6 @@ require("jquery")
 require("jquery-ui")
 
 import "../stylesheets/application.scss"
-import "../sylesheets/simple_form-bootstrap"
 
 global.$ = $
 global.jQuery = $
